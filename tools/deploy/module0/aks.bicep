@@ -56,7 +56,16 @@ resource aksCluster 'Microsoft.ContainerService/managedClusters@2025-01-01' = {
     aadProfile: {
       managed: true
       enableAzureRBAC: true
-    }    
+    }
+    oidcIssuerProfile: {
+      enabled: true
+    }
+    securityProfile: {
+      workloadIdentity: {
+        enabled: true
+      }
+    }
+
   }
 }
 
