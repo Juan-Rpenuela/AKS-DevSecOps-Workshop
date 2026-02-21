@@ -72,7 +72,7 @@ resource akv 'Microsoft.KeyVault/vaults@2022-07-01' = {
     accessPolicies: [
       {
         tenantId: subscription().tenantId
-        objectId: aks.identity.principalId
+        objectId: aksCluster.identity.principalId
         permissions: {
           keys: [
             'get'
@@ -86,4 +86,4 @@ resource akv 'Microsoft.KeyVault/vaults@2022-07-01' = {
   }
 }
 
-output controlPlaneFQDN string = aks.properties.fqdn
+output controlPlaneFQDN string = aksCluster.properties.fqdn
